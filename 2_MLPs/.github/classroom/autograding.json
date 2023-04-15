@@ -1,0 +1,134 @@
+{
+    "tests": [
+        {
+            "name": "Test 2-unit MLP",
+            "setup": "",
+            "run": "python -m pytest tests/test_2unit_model.py && python -m pytest tests/test_run_model.py",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Test 3-unit MLP",
+            "setup": "",
+            "run": "python -m pytest tests/test_3unit_model.py",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Test Cross Entropy",
+            "setup": "",
+            "run": "python -m pytest tests/test_crossentropy.py",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Test Extraction of Hidden Representation",
+            "setup": "",
+            "run": "python -m pytest tests/test_extract_hidden.py",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Test Linear Layer",
+            "setup": "",
+            "run": "python -m pytest tests/test_linear.py",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Test Logistic Regression",
+            "setup": "",
+            "run": "python -m pytest tests/test_log_reg.py",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Test ReLU",
+            "setup": "",
+            "run": "python -m pytest tests/test_relu.py",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Test Model Running",
+            "setup": "",
+            "run": "python -m pytest tests/test_run_model.py",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Test Sequential Network",
+            "setup": "",
+            "run": "python -m pytest tests/test_sequential.py",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Test Sigmoid",
+            "setup": "",
+            "run": "python -m pytest tests/test_sigmoid.py",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Test Softmax",
+            "setup": "",
+            "run": "python -m pytest tests/test_softmax.py",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        },
+	  {
+            "name": "Test Output 2unit and 3unit Model",
+            "setup": "",
+            "run": "python -m pytest tests/test_2unit_3unit_model_output.py",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        },
+        {
+            "name": "Test Code-Style",
+            "setup": "",
+            "run": "pycodestyle --max-line-length 120 .",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 1
+        }
+    ]
+}

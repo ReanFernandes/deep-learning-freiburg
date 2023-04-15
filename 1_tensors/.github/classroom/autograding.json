@@ -1,0 +1,94 @@
+{
+  "tests": [
+    {
+      "name": "Test Distributions",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_distributions.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Dot Product (4.1)",
+      "setup": "",
+      "run": "python -m pytest tests/test_dot_product.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Euclidean Norm",
+      "setup": "",
+      "run": "python -m pytest tests/test_euclidean_norm.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Example",
+      "setup": "",
+      "run": "python -m pytest tests/test_example.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test 2D Norm",
+      "setup": "",
+      "run": "python -m pytest tests/test_get_norm.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Inverse",
+      "setup": "",
+      "run": "python -m pytest tests/test_inverse.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Matrix from Eigendecomposition",
+      "setup": "",
+      "run": "python -m pytest tests/test_matrix_from_eigdec.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Names",
+      "setup": "",
+      "run": "python -m pytest tests/test_names.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Code-Style",
+      "setup": "",
+      "run": "pycodestyle --max-line-length 120 .",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}
