@@ -1,0 +1,74 @@
+{
+  "tests": [
+    {
+      "name": "Test Backward Pass",
+      "setup": "",
+      "run": "python -m pytest tests/test_backward_pass.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Gradient Check",
+      "setup": "",
+      "run": "python -m pytest tests/test_check_gradients.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Gradient Cross Entropy Loss",
+      "setup": "",
+      "run": "python -m pytest tests/test_gradient_celoss.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Gradient Linear Layer",
+      "setup": "",
+      "run": "python -m pytest tests/test_gradient_linear.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Gradient ReLU",
+      "setup": "",
+      "run": "python -m pytest tests/test_gradient_relu.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Zero Grad",
+      "setup": "",
+      "run": "python -m pytest tests/test_zero_grad.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Code-Style",
+      "setup": "",
+      "run": "pycodestyle --max-line-length 120 .",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}
