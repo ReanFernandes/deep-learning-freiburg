@@ -1,0 +1,43 @@
+\documentclass[addpoints]{exam}
+\pagestyle{headandfoot}
+\usepackage{amsmath, amsfonts}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage[scr=rsfs]{mathalpha}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\newcommand{\semester}{WS 2020/2021}
+\runningheader{\students}{Submission}{\semester}
+\runningfooter{}{\thepage}{}
+\headrule
+\footrule
+
+% ---------- Modify team name, students, exercise number here ----------
+\newcommand{\teamname}{dl2022-ryd}
+\newcommand{\students}{Yumna Ali, Rean Fernandes}
+\newcommand{\assignmentnumber}{2}
+% ---------- End Modify ----------
+
+\title{Submission for Deep Learning Exercise \assignmentnumber}
+\author{Team: \teamname\\Students: \students}
+\date{\today}
+
+\begin{document}
+    \maketitle
+
+    % ---------- Add Solution below here ----------
+
+    \section{Question 2}
+		\subsection{In what sense are convolutional neural networks and recurrent neural networks similar? In what sense are they different?}
+		The similarity between CNNs and RNNs is the neural architecture that they use. They both involve at the fundamental level, matrix multiplications with learnable weights and biases ( parameter) and use backpropagation to update these parameters.
+		
+		The difference is that while the CNN can only learn contextual information in the spatial dimensions, RNNs can learn contextual features in data across the time dimension as well. Thus they are more suited to dealing with sequential data like videos and times series forecasting.
+		
+		\subsection{How can one counteract vanishing or exploding gradients in RNNs, allowing to learn long-term dependencies?}
+		Gradient clipping can be used to prevent vanishing/ exploding gradients by letting the values for all gradients lie between a bound. if the values should exceed or fall below this bound, they will automatically be set to the maximum/minimum value of the bound.
+		Another would be to use a more complex architecture like LSTMs, GRUs and others, which while increasing complexity also ensure the long term propagation of memory.
+		Another potential method could be to use a ReLU function instead of a sigmoid activation, but this would only deal with the exploding gradient problem and not the vanishing gradient, which is why we are not so sure of it, but included it nonetheless.
+    % ---------- End of Document ----------
+
+\end{document}

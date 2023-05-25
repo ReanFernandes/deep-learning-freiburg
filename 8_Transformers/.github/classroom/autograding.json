@@ -1,0 +1,55 @@
+{
+  "tests": [
+    {
+      "name": "Test Jacobian",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_jacobian.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Attention",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_attention.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Counting",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_counting.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Transformer",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_transformer.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Code-Style",
+      "setup": "",
+      "run": "pycodestyle --max-line-length 120 .",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}
+

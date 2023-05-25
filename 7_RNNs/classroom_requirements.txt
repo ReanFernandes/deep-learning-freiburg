@@ -1,0 +1,10 @@
+# PyTorch installation included for the testing workflow on github classroom.
+# For your own installation, use requirements.txt instead.
+matplotlib>=3.3
+numpy>=1.19
+pytest>=6.1
+pycodestyle>=2.6
+scipy>=1.5
+scikit-learn>=0.23
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.7.1+cpu

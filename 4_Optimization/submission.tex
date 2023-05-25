@@ -1,0 +1,400 @@
+\documentclass[addpoints]{exam}
+\pagestyle{headandfoot}
+\usepackage{amsmath, amsfonts}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage[scr=rsfs]{mathalpha}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\newcommand{\semester}{WS 2020/2021}
+\runningheader{\students}{Submission}{\semester}
+\runningfooter{}{\thepage}{}
+\headrule
+\footrule
+
+% ---------- Modify team name, students, exercise number here ----------
+\newcommand{\teamname}{dl2022-ryd}
+\newcommand{\students}{Yumna Ali, Deepu K Reddy, Rean Fernandes}
+\newcommand{\assignmentnumber}{4}
+% ---------- End Modify ----------
+
+\title{Submission for Deep Learning Exercise \assignmentnumber}
+\author{Team: \teamname\\Students: \students}
+\date{\today}
+
+\begin{document}
+    \maketitle
+
+    % ---------- Add Solution below here ----------
+
+    \section{Pen and Paper: Stochastic Gradient Descent}
+    \subsection{First Update}
+    	\subsubsection{Forward Pass}
+    	\begin{subequations}
+    		\begin{equation}
+    			\hat{\textbf{y}}^{(0)} = (\textbf{w}^{(0)})^{T}\cdot \textbf{X} = \quad \begin{bmatrix}
+    				\begin{bmatrix}
+    					1& 0
+    				\end{bmatrix} \\
+    				\begin{bmatrix}
+    					1& 0
+    				\end{bmatrix}
+    			\end{bmatrix} \cdot \begin{bmatrix}
+    				\begin{bmatrix}
+    					2 \\-1
+    					
+    				\end{bmatrix} \begin{bmatrix}
+    					-1 \\3
+    					
+    				\end{bmatrix} 
+    			\end{bmatrix}=  \quad \begin{bmatrix}
+    			2&-1 
+    		\end{bmatrix}
+    		\end{equation}
+    	\begin{equation}
+			\mathscr{L}(\hat{\textbf{y}}^{(0)},\textbf{y}) = \quad (\hat{\textbf{y}}^{(0)} - \textbf{y})^{2} =\quad( \begin{bmatrix}
+				2&-1 
+			\end{bmatrix} - \begin{bmatrix}
+				3&1 
+			\end{bmatrix}) ^{2} = \quad \begin{bmatrix}
+				1&4 
+			\end{bmatrix}
+    	\end{equation}
+    \end{subequations}
+\subsubsection{Backward Pass}
+\begin{subequations}
+    \begin{equation}
+    	\frac{\partial\mathscr{L}(\hat{\textbf{y}}^{(0)},\textbf{y})}{\partial \hat{\textbf{y}}^{(0)}} = \quad 2 \cdot (\hat{\textbf{y}}^{(0)} - \textbf{y}) = \quad 2 \cdot ( \begin{bmatrix}
+    		2&-1 
+    	\end{bmatrix} - \begin{bmatrix}
+    		3&1 
+    	\end{bmatrix}) =\quad \begin{bmatrix}
+    		-2&-4
+    	\end{bmatrix}
+    \end{equation}
+\begin{equation} \label{2b}
+	\frac{\partial\mathscr{L}(\hat{\textbf{y}}^{(0)},\textbf{y})}{\partial \textbf{w}^{(0)}} =\quad \frac{\partial\mathscr{L}(\hat{\textbf{y}}^{(0)},\textbf{y})}{\partial \hat{\textbf{y}}^{(0)}}\cdot \frac{\partial\hat{\textbf{y}}^{(0)}}{\partial \textbf{w}^{(0)}}
+	 =  \quad   2 \cdot (\hat{\textbf{y}}^{(0)} - \textbf{y}) \cdot \textbf{X}= \quad \begin{bmatrix}
+		\begin{bmatrix}
+			-2
+		\end{bmatrix} & \begin{bmatrix}
+			-4
+		\end{bmatrix}
+	\end{bmatrix} \cdot \begin{bmatrix}
+	\begin{bmatrix}
+		2 \\-1
+		
+	\end{bmatrix} \begin{bmatrix}
+		-1 \\3
+		
+	\end{bmatrix}
+\end{bmatrix}=  \quad \begin{bmatrix}
+\begin{bmatrix}
+	-4 \\2
+	
+\end{bmatrix}^{T} & \begin{bmatrix}
+	4\\-12
+	
+\end{bmatrix}^{T} \end{bmatrix}
+\end{equation}
+    	\end{subequations}
+    The first column of the matrix in \ref{2b} are the gradients for the first input in our batch, and the second column is the gradient for the second input, both with respect to the starting weights. As we perform SGD with batch size equal to our dataset size, there is no need to randomly sample, and  we take the average of the gradients wrt each weight as the defined by the algorithm.
+    \subsubsection{Velocity and gradient update}
+ The gradient approximation is defined as
+    
+    	\begin{equation}
+    		\textbf{g} = \frac{1}{2} \nabla_{\textbf{w}}{\sum_{i = 1}^{2}\mathscr{L}(\hat{{y}}^{(0)},y)} = 0.5 \cdot\begin{bmatrix}
+    			-4 +4 \\2-12
+    			
+    		\end{bmatrix}^{T} = \begin{bmatrix}
+    		0 \\-5
+    		
+    	\end{bmatrix}^{T}
+    	\end{equation}
+    The new updated velocity is 
+    \begin{equation}
+    	\textbf{v}^{(1)} = \beta \cdot \textbf{v}^{(0)} - \alpha \cdot \textbf{g} = \quad  0.8\cdot \begin{bmatrix}
+    		0 \\0
+    		
+    	\end{bmatrix}^{T}- 0.2 \cdot \begin{bmatrix}
+    		0 \\-5
+    		
+    	\end{bmatrix}^{T} = \quad  \begin{bmatrix}
+    	0 \\-1
+    	
+    \end{bmatrix}^{T}
+    \end{equation}
+Adding this velocity to the gradient gives us the first gradient update
+\begin{equation}
+	\textbf{w}^{(1)} = \textbf{w}^{(0)} + \textbf{v}^{(1)} = \begin{bmatrix}
+		1 \\0
+		
+	\end{bmatrix}^{T} +  \begin{bmatrix}
+	0 \\-1
+	
+\end{bmatrix}^{T} =  \begin{bmatrix}
+1 \\-1
+
+\end{bmatrix}^{T}
+\end{equation}
+\subsection{Second update}
+\subsubsection{Forward Pass}
+\begin{subequations}
+	\begin{equation}
+		\hat{\textbf{y}}^{(1)} = (\textbf{w}^{(1)})^{T}\cdot \textbf{X} = \quad \begin{bmatrix}
+			\begin{bmatrix}
+				1& -1
+			\end{bmatrix} \\
+			\begin{bmatrix}
+				1& -1
+			\end{bmatrix}
+		\end{bmatrix} \cdot \begin{bmatrix}
+			\begin{bmatrix}
+				2 \\-1
+				
+			\end{bmatrix} \begin{bmatrix}
+				-1 \\3
+				
+			\end{bmatrix} 
+		\end{bmatrix}=  \quad \begin{bmatrix}
+			3&-4
+		\end{bmatrix}
+	\end{equation}
+	\begin{equation}
+		\mathscr{L}(\hat{\textbf{y}}^{(1)},\textbf{y}) = \quad (\hat{\textbf{y}}^{(1)} - \textbf{y})^{2} =\quad( \begin{bmatrix}
+			3&-4 
+		\end{bmatrix} - \begin{bmatrix}
+			3&1 
+		\end{bmatrix}) ^{2} = \quad \begin{bmatrix}
+			0&25
+		\end{bmatrix}
+	\end{equation}
+\end{subequations}
+\subsubsection{Backward Pass}
+\begin{subequations}
+	\begin{equation}
+		\frac{\partial\mathscr{L}(\hat{\textbf{y}}^{(1)},\textbf{y})}{\partial \hat{\textbf{y}}^{(1)}} = \quad 2 \cdot (\hat{\textbf{y}}^{(1)} - \textbf{y}) = \quad 2 \cdot (  \begin{bmatrix}
+			3&-4 
+		\end{bmatrix} - \begin{bmatrix}
+			3&1 
+		\end{bmatrix}) =\quad \begin{bmatrix}
+			0&-10
+		\end{bmatrix}
+	\end{equation}
+	\begin{equation} \label{2b}
+		\frac{\partial\mathscr{L}(\hat{\textbf{y}}^{(1)},\textbf{y})}{\partial \textbf{w}^{(1)}} =\quad \frac{\partial\mathscr{L}(\hat{\textbf{y}}^{(1)},\textbf{y})}{\partial \hat{\textbf{y}}^{(1)}}\cdot \frac{\partial\hat{\textbf{y}}^{(1)}}{\partial \textbf{w}^{(1)}}
+		=  \quad   2\cdot (\hat{\textbf{y}}^{(1)} - \textbf{y}) \cdot \textbf{X}= \quad \begin{bmatrix}
+			\begin{bmatrix}
+				0
+			\end{bmatrix} & \begin{bmatrix}
+				-10
+			\end{bmatrix}
+		\end{bmatrix} \cdot \begin{bmatrix}
+			\begin{bmatrix}
+				2 \\-1
+				
+			\end{bmatrix} \begin{bmatrix}
+				-1 \\3
+				
+			\end{bmatrix}
+		\end{bmatrix}=  \quad \begin{bmatrix}
+			\begin{bmatrix}
+				0 \\0
+				
+			\end{bmatrix}^{T} & \begin{bmatrix}
+				10\\-30
+				
+			\end{bmatrix}^{T} \end{bmatrix}
+	\end{equation}
+\end{subequations}
+\subsubsection{Velocity and gradient update}
+The gradient approximation:
+
+\begin{equation}
+	\textbf{g} = \frac{1}{2} \nabla_{\textbf{w}}{\sum_{i = 1}^{2}\mathscr{L}(\hat{{y}}^{(0)},y)} = 0.5 \cdot\begin{bmatrix}
+		0 +10 \\0-30
+		
+	\end{bmatrix}^{T} = \begin{bmatrix}
+		5 \\-15
+		
+	\end{bmatrix}^{T}
+\end{equation}
+The new updated velocity is 
+\begin{equation}
+	\textbf{v}^{(2)} = \beta \cdot \textbf{v}^{(1)} - \alpha \cdot \textbf{g} = \quad  0.8\cdot \begin{bmatrix}
+		0 \\-1
+		
+	\end{bmatrix}^{T}- 0.2 \cdot \begin{bmatrix}
+		5 \\-15
+		
+	\end{bmatrix}^{T} = \quad  \begin{bmatrix}
+		1 \\-3.8
+		
+	\end{bmatrix}^{T}
+\end{equation}
+Adding this velocity to the gradient gives us the first gradient update
+\begin{equation}
+	\textbf{w}^{(2)} = \textbf{w}^{(1)} + \textbf{v}^{(2)} = \begin{bmatrix}
+		1 \\-1
+		
+	\end{bmatrix}^{T} +  \begin{bmatrix}
+		1 \\-3.8
+		
+	\end{bmatrix}^{T} =  \begin{bmatrix}
+		2 \\-4.8
+		
+	\end{bmatrix}^{T}
+\end{equation}
+\subsection{Third Update}
+\subsubsection{Forward Pass}
+\begin{subequations}
+	\begin{equation}
+		\hat{\textbf{y}}^{(2)} = (\textbf{w}^{(2)})^{T}\cdot \textbf{X} = \quad \begin{bmatrix}
+			\begin{bmatrix}
+				2& -4.8
+			\end{bmatrix} \\
+			\begin{bmatrix}
+				2& -4.8
+			\end{bmatrix}
+		\end{bmatrix} \cdot \begin{bmatrix}
+			\begin{bmatrix}
+				2 \\-1
+				
+			\end{bmatrix} \begin{bmatrix}
+				-1 \\3
+				
+			\end{bmatrix} 
+		\end{bmatrix}=  \quad \begin{bmatrix}
+			8.8&-16.4
+		\end{bmatrix}
+	\end{equation}
+	\begin{equation}
+		\mathscr{L}(\hat{\textbf{y}}^{(2)},\textbf{y}) = \quad (\hat{\textbf{y}}^{(2)} - \textbf{y})^{2} =\quad( \begin{bmatrix}
+			8.8&-16.4 
+		\end{bmatrix} - \begin{bmatrix}
+			3&1 
+		\end{bmatrix}) ^{2} = \quad \begin{bmatrix}
+			33.64&302.76
+		\end{bmatrix}
+	\end{equation}
+\end{subequations}
+    \subsubsection{Backward Pass}
+    \begin{subequations}
+    	\begin{equation}
+    		\frac{\partial\mathscr{L}(\hat{\textbf{y}}^{(2)},\textbf{y})}{\partial \hat{\textbf{y}}^{(2)}} = \quad 2 \cdot (\hat{\textbf{y}}^{(2)} - \textbf{y}) = \quad 2 \cdot (  \begin{bmatrix}
+    			8.8&-16.4 
+    		\end{bmatrix} - \begin{bmatrix}
+    			3&1 
+    		\end{bmatrix}) =\quad \begin{bmatrix}
+    			11.6&-34.8
+    		\end{bmatrix}
+    	\end{equation}
+    	\begin{equation} 
+    		\frac{\partial\mathscr{L}(\hat{\textbf{y}}^{(2)},\textbf{y})}{\partial \textbf{w}^{(2)}} =\quad \frac{\partial\mathscr{L}(\hat{\textbf{y}}^{(2)},\textbf{y})}{\partial \hat{\textbf{y}}^{(2)}}\cdot \frac{\partial\hat{\textbf{y}}^{(2)}}{\partial \textbf{w}^{(2)}}
+    		=  \quad   2\cdot (\hat{\textbf{y}}^{(1)} - \textbf{y}) \cdot \textbf{X}= \quad \begin{bmatrix}
+    			\begin{bmatrix}
+    				11.6
+    			\end{bmatrix} & \begin{bmatrix}
+    				-34.8
+    			\end{bmatrix}
+    		\end{bmatrix} \cdot \begin{bmatrix}
+    			\begin{bmatrix}
+    				2 \\-1
+    				
+    			\end{bmatrix} \begin{bmatrix}
+    				-1 \\3
+    				
+    			\end{bmatrix}
+    		\end{bmatrix}=  \quad \begin{bmatrix}
+    			\begin{bmatrix}
+    				23.2 \\-11.6
+    				
+    			\end{bmatrix}^{T} & \begin{bmatrix}
+    				34.8\\-104.4
+    				
+    			\end{bmatrix}^{T} \end{bmatrix}
+    	\end{equation}
+    \end{subequations}
+		\subsubsection{Velocity and gradient update}
+		The gradient approximation:
+		
+		\begin{equation}
+			\textbf{g} = \frac{1}{2} \nabla_{\textbf{w}}{\sum_{i = 1}^{2}\mathscr{L}(\hat{{y}}^{(2)},y)} = 0.5 \cdot\begin{bmatrix}
+				23.2+34.8 \\-11.6-104.4
+				
+			\end{bmatrix}^{T} = \begin{bmatrix}
+				29 \\-58
+				
+			\end{bmatrix}^{T}
+		\end{equation}
+		The new updated velocity is 
+		\begin{equation}
+			\textbf{v}^{(3)} = \beta \cdot \textbf{v}^{(2)} - \alpha \cdot \textbf{g} = \quad  0.8\cdot \begin{bmatrix}
+				1 \\-3.8
+				
+			\end{bmatrix}^{T}- 0.2 \cdot \begin{bmatrix}
+				29\\-58
+				
+			\end{bmatrix}^{T} = \quad  \begin{bmatrix}
+				6.6 \\-14.64
+				
+			\end{bmatrix}^{T}
+		\end{equation}
+		Adding this velocity to the gradient gives us the first gradient update
+		\begin{equation}
+			\textbf{w}^{(3)} = \textbf{w}^{(2)} + \textbf{v}^{(3)} = \begin{bmatrix}
+				2 \\-4.8
+				
+			\end{bmatrix}^{T} +  \begin{bmatrix}
+				6.6 \\-14.64
+				
+			\end{bmatrix}^{T} =  \begin{bmatrix}
+				8.6 \\-19.44
+				
+			\end{bmatrix}^{T}
+		\end{equation}
+\section{Proof}
+We are given that the gradient doesn't change over a certain number of time steps n. To prove that the bias corrected first order moment equals the gradient when gradient doesnt change, we do the following:\\
+Case 1: $n=1, s_{0} = zeroslike(g)$
+\begin{subequations}
+	\begin{equation}
+		s_{1} = \rho \cdot s_{0} + (1-\rho)\cdot g = 0+(1-\rho)\cdot g \\\end{equation}
+		\begin{equation}
+			\hat{s}_{1} = \frac{s_{1}}{1-\rho^{1}} = \frac{(1-\rho)\cdot g}{(1-\rho)} = g
+		\end{equation}
+\end{subequations}
+\\Case 2: $n=2, s_{1} = (1-\rho)\cdot g$
+\begin{subequations}
+	\begin{equation}
+		s_{2} = \rho \cdot s_{1} + (1-\rho)\cdot g = \rho \cdot (1-\rho)\cdot g +(1-\rho)\cdot g = g \cdot(1-\rho^{2})\\\end{equation}
+	\begin{equation}
+		\hat{s}_{2} = \frac{s_{2}}{1-\rho^{2}} = \frac{(1-\rho^{2})\cdot g}{(1-\rho^{2})} = g
+	\end{equation}
+\end{subequations}
+\\Case 3: $n=3, s_{2} = (1-\rho^{2})\cdot g$
+\begin{subequations}
+	\begin{equation}
+		s_{3} =\rho \cdot s_{2}+(1-\rho)\cdot g =  \rho\cdot(1-\rho^{2})\cdot g + (1-\rho)\cdot g\\\end{equation}
+	\begin{equation}
+		= g\cdot(1-\rho)\cdot(1+\rho+\rho^{2}) =  g(1-\rho^{3}) \quad \quad \text{from algebraic identity for cubic polynomials}
+	\end{equation}
+	\begin{equation}
+		\hat{s}_{3} = \frac{s_{3}}{1-\rho^{3}} = \frac{(1-\rho^{3})\cdot g}{(1-\rho^{3})} = g
+	\end{equation}
+\end{subequations}
+\\Case 4: : $n=4, s_{3} = (1-\rho^{3})\cdot g$
+\begin{subequations}
+	\begin{equation}
+		s_{4} =\rho \cdot s_{3}+(1-\rho)\cdot g =  \rho\cdot g\cdot(1-\rho)\cdot(1+\rho+\rho^{2}) + (1-\rho)\cdot g\\\end{equation}
+	\begin{equation}
+		= g\cdot (1-\rho)\cdot(1+\rho+\rho^{2}+\rho^{^3}) =  g(1-\rho^{4}) \quad \quad \text{on expansion}
+	\end{equation}
+	\begin{equation}
+		\hat{s}_{4} = \frac{s_{4}}{1-\rho^{4}} = \frac{(1-\rho^{4})\cdot g}{(1-\rho^{4})} = g
+	\end{equation}
+\end{subequations}
+Thus by induction we can conclude that for as long as the gradient stays constant over the steps, our bias corrected first moment will be equal to it
+    % ---------- End of Document ----------
+
+\end{document}

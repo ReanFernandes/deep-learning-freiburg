@@ -1,0 +1,55 @@
+
+{
+  "tests": [
+    {
+      "name": "Test VAE",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_vae.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test VAE Loss",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_loss.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test GAN",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_gan.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test TRAIN GAN",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_train_gan.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+        "name": "Test Code-Style",
+        "setup": "",
+        "run": "pycodestyle --max-line-length 120 .",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 10,
+        "points": 1
+      }
+  ]
+}

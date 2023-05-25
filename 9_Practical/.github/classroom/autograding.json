@@ -1,0 +1,104 @@
+{
+  "tests": [
+    {
+      "name": "Test ConvNet1",
+      "setup": "",
+      "run": "python -m pytest tests/test_convnet1.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test ConvNet2",
+      "setup": "",
+      "run": "python -m pytest tests/test_convnet2.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test ConvNet3",
+      "setup": "",
+      "run": "python -m pytest tests/test_convnet3.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test ConvNet4",
+      "setup": "",
+      "run": "python -m pytest tests/test_convnet4.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test ModifiedResNet1",
+      "setup": "",
+      "run": "python -m pytest tests/test_modified_resnet1.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test ModifiedResNet2",
+      "setup": "",
+      "run": "python -m pytest tests/test_modified_resnet2.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test ModifiedResNet3",
+      "setup": "",
+      "run": "python -m pytest tests/test_modified_resnet3.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test ModifiedResNet4",
+      "setup": "",
+      "run": "python -m pytest tests/test_modified_resnet4.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test ModifiedResNet5",
+      "setup": "",
+      "run": "python -m pytest tests/test_modified_resnet5.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Code-Style",
+      "setup": "",
+      "run": "pycodestyle --max-line-length 120 .",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}

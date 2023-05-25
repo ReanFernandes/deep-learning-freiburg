@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "Test LSTM",
+      "setup": "",
+      "run": "python -m pytest tests/test_lstm_cell.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+          {
+      "name": "Test Noise Removal",
+      "setup": "",
+      "run": "python -m pytest tests/test_noise_removal_model.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Code-Style",
+      "setup": "",
+      "run": "pycodestyle --max-line-length 120 .",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}

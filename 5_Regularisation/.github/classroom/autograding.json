@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "Test Dropout module",
+      "setup": "",
+      "run": "python -m pytest tests/test_dropout.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test L1 Regularizer Module",
+      "setup": "",
+      "run": "python -m pytest tests/test_L1_regularizer.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test L2 Regularizer Module",
+      "setup": "",
+      "run": "python -m pytest tests/test_L2_regularizer.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Code-Style",
+      "setup": "",
+      "run": "pycodestyle --max-line-length 120 .",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}

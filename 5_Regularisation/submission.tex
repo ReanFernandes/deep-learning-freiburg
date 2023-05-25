@@ -1,0 +1,52 @@
+\documentclass[addpoints]{exam}
+\pagestyle{headandfoot}
+\usepackage{amsmath, amsfonts}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage[scr=rsfs]{mathalpha}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\newcommand{\semester}{WS 2020/2021}
+\runningheader{\students}{Submission}{\semester}
+\runningfooter{}{\thepage}{}
+\headrule
+\footrule
+
+% ---------- Modify team name, students, exercise number here ----------
+\newcommand{\teamname}{dl2022-ryd}
+\newcommand{\students}{Yumna Ali, Deepu K Reddy, Rean Fernandes}
+\newcommand{\assignmentnumber}{2}
+% ---------- End Modify ----------
+
+\title{Submission for Deep Learning Exercise \assignmentnumber}
+\author{Team: \teamname\\Students: \students}
+\date{\today}
+
+\begin{document}
+    \maketitle
+
+    % ---------- Add Solution below here ----------
+\section{Pen and paper task - Data Augmentation}
+\subsection{1.1}
+\begin{itemize}
+	\item Rotation by a small angle, say $<10$ degrees
+	\item Shift
+	\item Zoom
+	\item Shear
+	\item Additive noise
+	\item Changing Gamma values of the image
+\end{itemize}
+\subsection{1.2}
+Mirroring the image makes no sense, as it produces meaningless data that would serve no purpose in recognising the number and will train the network to look for unhelpful features.
+\subsection{2.1}
+The given image shows the validation loss increasing as the epochs progress even though the training loss decreases. This can be utilised to perform early stopping once there is an increase in the value.
+\subsection{2.2}
+Early stopping essentially limits how much our network is allowed explore in the parameter space around its initial value. The number of steps, combined with the gradient, limit the values of the parameters, in very much the same way a norm based regulariser would, and our next values for the parameters can only exist within this described space. Thus we conclude that early stopping is also a regularising technique.
+
+    
+
+
+    % ---------- End of Document ----------
+
+\end{document}

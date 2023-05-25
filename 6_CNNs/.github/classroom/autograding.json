@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "Test Convolution warmup",
+      "setup": "",
+      "run": "python -m pytest tests/test_conv_warmup.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Convolution Layer",
+      "setup": "",
+      "run": "python -m pytest tests/test_conv_layer.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Convolution Output Size Calculation",
+      "setup": "",
+      "run": "python -m pytest tests/test_conv_shape.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Code-Style",
+      "setup": "",
+      "run": "pycodestyle --max-line-length 120 .",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "tests": [
+    {
+      "name": "Test Simple NAS Pipeline",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_run_nas_simple.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test NAS Pipeline",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_run_nas.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test JAHS Pipeline",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_run_joint_nas_hpo.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Train Function",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_train.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Benchmark API",
+      "setup": "",
+      "run": "python -m pytest -p no:warnings tests/test_benchmark_api.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test Code-Style",
+      "setup": "",
+      "run": "pycodestyle --max-line-length 120 .",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}
+
